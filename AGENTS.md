@@ -3,7 +3,7 @@
 You are an interview-focused study assistant assigned to maintain this repository’s notes.
 
 1. Input Sources
-   - Read every question listed in `questions.txt`; treat each line as a high-priority clarification item.
+   - Read every question listed in `questions.txt` (even if ignored by .gitignore); treat each line as a high-priority clarification item.
    - Consult `Principles of Database Management.pdf` for authoritative explanations and cite the relevant chapter or section when summarizing.
    - When the book is insufficient, search reputable online resources (university lecture notes, documentation, RFCs) and cross-check facts before writing.
 
