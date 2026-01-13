@@ -135,6 +135,8 @@ A data model defines the logical structure of a database. The most common data m
 
 ### Three-Schema Architecture
 
+![3-Tier Architecture](img/three_layer_architecture.png)
+
 The three-schema architecture (also known as the three-level architecture) provides a framework for modern database design. It separates the user's view of the database from the physical storage of the database.
 
 - **External Level (View Level)**: The highest level of abstraction. It defines how a particular user or group of users sees the data. There can be multiple external views for a single database.
@@ -199,3 +201,107 @@ Database languages are used to read, store, and update data in a database. They 
   - `ROLLBACK`: Undoes the work done in a transaction.
 
 > **Interview Tip:** SQL (Structured Query Language) is the standard language for relational databases and encompasses all four of these categories. While different databases may have their own procedural extensions to SQL (like PL/SQL for Oracle or T-SQL for SQL Server), a strong foundation in standard SQL is a must-have skill for almost any data-related role.
+
+## DBMS Architecture
+
+![DBMS Architecture](img/dbms_architecture.png)
+
+A Database Management System (DBMS) architecture defines the design and layout of a database. It describes how the system is constructed, how its components are connected, and how data flows between them. A well-defined architecture is crucial for ensuring data integrity, security, performance, and scalability.
+
+### Core Components of a DBMS
+
+A typical DBMS is not a single, monolithic entity but a collection of interconnected components, each with a specific responsibility. The two main components are:
+
+- **Query Processor**: This is the "brain" of the DBMS. It accepts queries from the user, parses them, optimizes them for efficient execution, and then dispatches them to the storage manager.
+- **Storage Manager**: This is the "engine room" of the DBMS. It is responsible for the interaction with the physical database. It handles the storage, retrieval, and management of data on the storage devices.
+
+These two high-level components are composed of several smaller, specialized modules:
+
+- **Connection and Security Manager**: Authenticates users, manages sessions, and enforces security constraints.
+- **DDL Compiler**: Compiles Data Definition Language (DDL) statements (like `CREATE TABLE`) into a set of table definitions in the database catalog.
+- **DML Compiler**: Compiles Data Manipulation Language (DML) statements (like `SELECT`, `INSERT`, `UPDATE`, `DELETE`) into a query plan.
+- **Query Parser and Rewriter**: Parses the query syntax and rewrites it into a more efficient internal representation.
+- **Query Optimizer**: Analyzes the query and generates the most efficient execution plan. This is one of the most critical components for performance.
+- **Query Executor**: Executes the chosen query plan and returns the results to the user.
+- **Transaction Manager**: Ensures that transactions are executed in an atomic, consistent, isolated, and durable (ACID) manner.
+- **Buffer Manager**: Manages the transfer of data between the main memory (buffer pool) and the secondary storage (disk).
+- **Lock Manager**: Manages concurrent access to the database by using locks to prevent conflicting operations.
+- **Recovery Manager**: Ensures that the database can be restored to a consistent state after a failure.
+
+> **Interview Tip:** When asked about DBMS architecture, don't just list the components. Explain how they interact. For example, describe the journey of a SQL query: it's parsed by the query parser, optimized by the query optimizer, executed by the query executor, which in turn requests data from the storage manager. This shows a deeper understanding of the process.
+
+### DBMS Utilities
+
+DBMS utilities are a set of tools or programs that help in the day-to-day management and maintenance of a database. They are essential for database administrators (DBAs) to ensure the database is running smoothly. Common types of utilities include:
+
+- **Loading Utilities**: Used to load data from external files (e.g., CSV, text files) into the database.
+- **Backup and Recovery Utilities**: Used to create backups of the database and to restore the database from a backup in case of a failure.
+- **Performance Monitoring Utilities**: Used to monitor the performance of the database and to identify bottlenecks.
+- **Security Utilities**: Used to manage user accounts and permissions.
+- **Reorganization Utilities**: Used to reorganize the data in the database to improve performance.
+- **Data Export/Import Utilities**: Used to move data between different databases or between a database and an external file.
+
+> **Interview Tip:** When asked about DBMS utilities, it's good to mention a few examples of utilities for a specific DBMS you are familiar with. For example, for PostgreSQL, you could mention `pg_dump` for backups, `pg_restore` for recovery, and `EXPLAIN` for query analysis. This shows practical knowledge.
+
+### DBMS Interfaces
+
+A DBMS interface is a component of the DBMS that allows users to interact with the database. There are several types of interfaces, designed for different types of users and tasks.
+
+- **Command-Line Interface (CLI)**: A text-based interface where users type commands to interact with the database. This is a powerful and flexible interface, often preferred by developers and database administrators.
+- **Graphical User Interface (GUI)**: A user-friendly interface that uses graphical elements like windows, menus, and buttons. This type of interface is suitable for users who are not familiar with command-line tools.
+- **Programmatic Interfaces (APIs)**: These are interfaces for developers to use in their applications to interact with the database. Examples include JDBC (for Java), ODBC (for many languages), and other database-specific drivers.
+- **Natural Language Interface**: An interface that allows users to interact with the database using a natural language (like English).
+- **Forms-Based Interface**: An interface where users interact with the database by filling out forms. This is common in web applications.
+
+> **Interview Tip:** When discussing DBMS interfaces, it's important to understand the trade-offs between different types of interfaces. For example, a CLI is powerful and flexible, but it has a steeper learning curve than a GUI. A GUI is easier to use, but it may not be as powerful or flexible as a CLI.
+
+## Categorization of DBMSs
+
+Database Management Systems (DBMS) can be classified in several ways, depending on the criteria used. Understanding these categorizations is important for choosing the right DBMS for a given application.
+
+### Based on Data Model
+
+The most common way to classify a DBMS is by the data model it supports. The data model defines the logical structure of the database.
+
+- **Relational Model (RDBMS)**: Data is stored in tables (relations) with rows and columns. This is the most widely used model for structured data and applications requiring strong consistency (ACID). Examples: MySQL, PostgreSQL, SQL Server.
+- **NoSQL Models**: A category of databases that are non-relational and are built for scalability and flexibility. They are ideal for large volumes of unstructured or semi-structured data.
+  - **Document Databases**: Store data in flexible, JSON-like documents. Examples: MongoDB, Couchbase.
+  - **Key-Value Stores**: Store data as key-value pairs. Examples: Redis, Amazon DynamoDB.
+  - **Wide-Column Stores**: Store data in columns instead of rows. Examples: Apache Cassandra, HBase.
+  - **Graph Databases**: Use nodes and edges to represent and store data, focusing on relationships. Examples: Neo4j, Amazon Neptune.
+- **Object-Oriented Model**: Data is stored as objects, with attributes and methods.
+- **Hierarchical Model**: Data is organized in a tree-like structure.
+- **Network Model**: An extension of the hierarchical model that allows many-to-many relationships.
+
+> **Interview Tip:** Be prepared to discuss the trade-offs between different data models. A common interview question is "What database would you choose for [scenario]?" Frame your answer around the specific requirements of the scenario, such as data structure, scalability needs, and consistency guarantees.
+
+### Based on Degree of Simultaneous Access
+
+This categorization is based on the number of users that can access the database at the same time.
+
+- **Single-User DBMS**: Only one user can access the database at a time. This is suitable for personal use or embedded systems.
+- **Multi-User DBMS**: Multiple users can access the database concurrently. This is the standard for most modern applications and requires a robust concurrency control mechanism.
+
+> **Interview Tip:** When discussing multi-user systems, be prepared to talk about concurrency control mechanisms like locking and multi-version concurrency control (MVCC). This shows you understand the challenges of concurrent access.
+
+### Based on Architecture
+
+This categorization is based on how the DBMS is distributed.
+
+- **Centralized DBMS**: The database and DBMS software reside at a single site.
+- **Distributed DBMS**: The database and DBMS software are distributed across multiple sites connected by a network.
+- **Cloud Databases**: The database is hosted on a cloud platform (e.g., AWS, Azure, GCP).
+- **On-Premises Databases**: The database is hosted on local servers within an organization.
+- **Hybrid Databases**: A combination of cloud and on-premises hosting.
+
+> **Interview Tip:** The trend is moving towards cloud and hybrid databases. Be familiar with the advantages and disadvantages of each approach, such as cost, scalability, security, and control.
+
+### Based on Usage
+
+This categorization is based on the type of workload the DBMS is designed for.
+
+- **Online Transaction Processing (OLTP)**: Optimized for a large number of short, atomic transactions (e.g., e-commerce orders, bank transactions).
+- **Online Analytical Processing (OLAP)**: Optimized for complex queries and data analysis (e.g., business intelligence, data warehousing).
+- **Time-Series Databases**: Optimized for storing and querying time-stamped data (e.g., IoT sensor data, financial data).
+
+> **Interview Tip:** Understanding the difference between OLTP and OLAP is crucial. Be able to explain the different requirements of each type of system, such as response time, data volume, and query complexity.
