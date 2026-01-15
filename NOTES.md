@@ -305,3 +305,258 @@ This categorization is based on the type of workload the DBMS is designed for.
 - **Time-Series Databases**: Optimized for storing and querying time-stamped data (e.g., IoT sensor data, financial data).
 
 > **Interview Tip:** Understanding the difference between OLTP and OLAP is crucial. Be able to explain the different requirements of each type of system, such as response time, data volume, and query complexity.
+
+## Phases of Database Design
+
+![Phases of DB Design](img/phases_of_db_design.png)
+
+The process of designing a database is typically divided into several phases. Each phase focuses on a different level of abstraction, moving from a high-level conceptual model to a detailed physical implementation.
+
+- **Requirements Collection and Analysis**: The first step is to understand the data requirements of the end-users. This involves interviewing users, studying existing documentation, and understanding the business processes. The output of this phase is a set of user requirements.
+
+- **Conceptual Design**: In this phase, the requirements are translated into a conceptual schema, which is a high-level description of the data to be stored in the database. The Entity-Relationship (ER) model is a popular tool for conceptual design. The conceptual schema is independent of the choice of DBMS.
+
+- **Logical Design (Data Model Mapping)**: The conceptual schema is mapped to a logical model that is specific to a class of DBMS (e.g., relational, NoSQL). For a relational DBMS, this involves converting the ER model into a set of tables with their associated constraints.
+
+- **Physical Design**: This phase deals with the physical implementation of the database. It involves decisions about how the data is stored on disk, the creation of indexes, and other performance-tuning measures. The physical design is specific to the chosen DBMS.
+
+> **Interview Tip:** A common interview question is to describe the phases of database design. Be sure to emphasize the distinction between the conceptual, logical, and physical design phases. A good answer will also mention the tools and models used in each phase (e.g., ER model for conceptual design).
+
+## Entity-Relationship (ER) Model
+
+![ER Model](img/er_model.png)
+
+The Entity-Relationship (ER) Model is a high-level, conceptual data model that is used to represent the structure of a database. It was developed by Peter Chen and is a graphical representation of the entities in a database and the relationships between them. The ER model is a crucial tool in the conceptual design phase of a database.
+
+The main components of the ER model are:
+
+- **Entities**: Real-world objects or concepts that can be uniquely identified (e.g., a student, a course, a department).
+- **Attributes**: Properties that describe an entity (e.g., a student's name, age, and major).
+- **Relationships**: Associations between two or more entities (e.g., a student enrolls in a course).
+
+The ER model provides a simple and clear way to visualize the structure of a database, which makes it an effective communication tool between database designers and end-users.
+
+> **Interview Tip:** When asked about the ER model, be sure to mention that it is a **conceptual** model, meaning it is independent of the specific database technology being used. This is a key distinction. Also, be prepared to draw a simple ER diagram for a given scenario.
+
+### Entity Types
+
+An **entity type** (or entity set) is a collection of similar entities. It's a template for a set of entities that have the same attributes. In an ER diagram, an entity type is represented by a rectangle.
+
+- **Entity**: A single, uniquely identifiable object in the real world. For example, a specific student named "John Smith" is an entity.
+- **Entity Type**: A collection of entities with the same attributes. For example, "STUDENT" is an entity type.
+
+Think of an entity type as a noun. It's a person, place, thing, or concept.
+
+**Example**:
+
+- **Entity Type**: `STUDENT`
+- **Entities**: The individual students in a university, such as "John Smith", "Jane Doe", etc.
+
+> **Interview Tip:** The distinction between an entity and an entity type is fundamental. An entity is a specific instance, while an entity type is the general category. A good analogy is a class and an object in object-oriented programming: the entity type is the class, and the entity is the object.
+
+### Attribute Types
+
+An **attribute** is a property or characteristic of an entity type. It describes the entity and provides more information about it. In an ER diagram, attributes are represented by ovals connected to their entity type.
+
+For example, for the `STUDENT` entity type, the attributes could be `StudentID`, `Name`, `DateOfBirth`, and `Major`.
+
+There are several types of attributes:
+
+- **Simple vs. Composite**:
+  - **Simple (or Atomic) Attribute**: An attribute that cannot be divided into smaller components. For example, `StudentID`.
+  - **Composite Attribute**: An attribute that can be broken down into smaller, meaningful parts. For example, the `Name` attribute could be a composite attribute consisting of `FirstName`, `MiddleName`, and `LastName`.
+
+- **Single-Valued vs. Multi-Valued**:
+  - **Single-Valued Attribute**: An attribute that can have only one value for each entity. For example, `StudentID`.
+  - **Multi-Valued Attribute**: An attribute that can have multiple values for a single entity. For example, a `PhoneNumber` attribute for a student, as a student can have more than one phone number.
+
+- **Stored vs. Derived**:
+  - **Stored Attribute**: An attribute whose value is stored directly in the database. For example, `DateOfBirth`.
+  - **Derived Attribute**: An attribute whose value can be calculated or derived from another attribute. For example, the `Age` of a student can be derived from their `DateOfBirth`. Derived attributes are not stored in the database.
+
+> **Interview Tip:** When designing a database schema, the choice of attribute types can have a significant impact on data integrity and query performance. Be prepared to discuss the trade-offs of using different attribute types. For example, while a composite attribute can be useful for detailed queries, it can also make data entry more complex.
+
+### Domains
+
+The **domain** of an attribute is the set of all possible values that the attribute can have. It's a constraint on the values that can be assigned to an attribute.
+
+For example:
+
+- The domain of the `Grade` attribute could be the set of single characters: `{'A', 'B', 'C', 'D', 'F'}`.
+- The domain of the `Gender` attribute could be `{'Male', 'Female', 'Other'}`.
+- The domain of a `Month` attribute could be the set of integers from 1 to 12.
+
+Defining domains for attributes is crucial for maintaining data integrity. It ensures that only valid and meaningful values are stored in the database.
+
+> **Interview Tip:** In practical terms, the domain of an attribute is enforced by its data type (e.g., `INT`, `VARCHAR`, `BOOLEAN`) and any additional constraints (e.g., `CHECK` constraints, `FOREIGN KEY` constraints). When asked about data integrity, mentioning the use of domains to restrict attribute values is a great way to demonstrate your understanding.
+
+### Key Attribute Types
+
+A **key** is an attribute or a set of attributes that uniquely identifies an entity within an entity set. Keys are fundamental to the relational model and are used to establish and enforce relationships between tables.
+
+- **Super Key**: A set of one or more attributes that, taken collectively, can uniquely identify an entity in an entity set.
+- **Candidate Key**: A minimal super key. It's a super key with no redundant attributes. An entity set can have multiple candidate keys.
+- **Primary Key**: The candidate key that is chosen by the database designer to uniquely identify entities in an entity set. A primary key cannot have null values. In an ER diagram, the primary key attribute is usually underlined.
+- **Alternate Key**: Any candidate key that is not chosen as the primary key.
+- **Foreign Key**: An attribute or a set of attributes in one table that refers to the primary key of another table. Foreign keys are used to link tables together and enforce referential integrity.
+
+**Example**:
+
+Consider a `STUDENT` entity type with attributes `StudentID`, `SSN`, `Name`, and `Email`.
+
+- **Super Keys**: `(StudentID)`, `(SSN)`, `(Email)`, `(StudentID, Name)`, `(SSN, Name)`, etc.
+- **Candidate Keys**: `(StudentID)`, `(SSN)`, `(Email)` (assuming they are all unique).
+- **Primary Key**: `(StudentID)` (chosen by the designer).
+- **Alternate Keys**: `(SSN)`, `(Email)`.
+
+> **Interview Tip:** Understanding the different types of keys is crucial for database design and normalization. Be prepared to explain the difference between a super key, a candidate key, and a primary key. A common interview question is to identify the candidate keys and choose a primary key for a given set of attributes.
+
+### Relationship Types
+
+A **relationship type** is an association between two or more entity types. It represents a real-world connection between the entities. In an ER diagram, a relationship type is represented by a diamond shape.
+
+![Relationship Types](img/relationship_types.png)
+
+- **Relationship Instance**: A specific association between entities. For example, student "John Smith" enrolling in course "CS101" is a relationship instance.
+- **Relationship Type**: A set of similar relationship instances. For example, `ENROLLS` is a relationship type that associates `STUDENT` entities with `COURSE` entities.
+
+Think of a relationship type as a verb that connects two or more nouns (entity types).
+
+**Example**:
+
+- **Entity Types**: `STUDENT`, `COURSE`
+- **Relationship Type**: `ENROLLS`
+- **Meaning**: A student enrolls in a course.
+
+> **Interview Tip:** When modeling a database, identifying the relationships between entities is just as important as identifying the entities themselves. A common mistake is to create a system with many entities but poorly defined relationships. Always think about how the entities are connected and what business rules those connections represent.
+
+### Degrees and Roles
+
+The **degree** of a relationship type is the number of participating entity types.
+
+- **Unary (or Recursive) Relationship**: A relationship between instances of a single entity type. For example, an `EMPLOYEE` entity type might have a `SUPERVISES` relationship where one employee supervises another.
+- **Binary Relationship**: A relationship between two different entity types. This is the most common type of relationship. For example, a `STUDENT` enrolls in a `COURSE`.
+- **Ternary Relationship**: A relationship between three different entity types. For example, a `DOCTOR` prescribes a `MEDICATION` to a `PATIENT`.
+
+**Roles** are used to clarify the meaning of a relationship when the participating entity types are not distinct. In a unary relationship, roles are essential to specify how the entity type participates in the relationship.
+
+**Example**:
+
+In a `SUPERVISES` relationship on the `EMPLOYEE` entity type, an employee can participate in two roles:
+
+- **Supervisor**: The employee who supervises.
+- **Supervisee**: The employee who is supervised.
+
+> **Interview Tip:** While binary relationships are the most common, be prepared to discuss and model unary and ternary relationships. A classic example of a unary relationship is an employee supervising another employee. For ternary relationships, a common example is a supplier providing a part to a project.
+
+### Cardinalities
+
+**Cardinality** specifies the number of instances of one entity that can be associated with each instance of another entity. It's a constraint that defines the business rules of a relationship.
+
+There are four main types of cardinality for binary relationships:
+
+- **One-to-One (1:1)**: Each entity in the first entity set can be associated with at most one entity in the second entity set, and vice versa.
+  - **Example**: A `PERSON` has one `PASSPORT`, and a `PASSPORT` is issued to one `PERSON`.
+
+- **One-to-Many (1:N)**: Each entity in the first entity set can be associated with many entities in the second entity set, but each entity in the second entity set can be associated with at most one entity in the first.
+  - **Example**: A `MOTHER` can have many `CHILDREN`, but each `CHILD` has only one `MOTHER`.
+
+- **Many-to-One (N:1)**: Many entities in the first entity set can be associated with at most one entity in the second entity set, but each entity in the second entity set can be associated with many entities in the first.
+  - **Example**: Many `STUDENTS` can enroll in one `COURSE`.
+
+- **Many-to-Many (M:N)**: Each entity in the first entity set can be associated with many entities in the second entity set, and vice versa.
+  - **Example**: A `STUDENT` can enroll in many `COURSES`, and a `COURSE` can have many `STUDENTS`.
+
+In addition to cardinality, **participation constraints** (also known as **optionality**) specify whether the existence of an entity depends on its being related to another entity.
+
+- **Total Participation (Mandatory)**: Every entity in the entity set must participate in at least one relationship instance. This is represented by a double line in some notations.
+- **Partial Participation (Optional)**: Not all entities in the entity set need to participate in a relationship. This is represented by a single line.
+
+> **Interview Tip:** Cardinality and participation are critical for accurately modeling business rules. Be prepared to explain the different types of cardinality and participation and to apply them to a given scenario. A common interview question is to model a situation like a library system, where you need to define the relationships between books, members, and loans, including their cardinalities.
+
+### Relationship Attribute Types
+
+A relationship type can also have attributes. These are called **descriptive attributes**. They are used to record information about the relationship itself.
+
+This is most common in many-to-many relationships. For a one-to-many relationship, any attribute of the relationship can usually be moved to the entity on the "many" side.
+
+**Example**:
+
+Consider the many-to-many relationship `ENROLLS` between `STUDENT` and `COURSE`. A student can enroll in many courses, and a course can have many students.
+
+The `ENROLLS` relationship can have an attribute `Grade` that stores the grade a student received in a particular course. The `Grade` attribute belongs to the relationship, not to the `STUDENT` or the `COURSE` entity, because it describes the outcome of a specific student enrolling in a specific course.
+
+> **Interview Tip:** When you have a many-to-many relationship in your ER model, always consider if there are any attributes that describe the relationship itself. These attributes will become columns in the new table that is created to resolve the many-to-many relationship when you convert the ER model to a relational schema.
+
+### Weak Entity Types
+
+A **weak entity type** is an entity type that does not have a primary key of its own. It cannot be uniquely identified by its attributes alone. To be identified, a weak entity must be associated with another entity type, called the **identifying** or **owner entity type**.
+
+The relationship between a weak entity type and its owner is called an **identifying relationship**.
+
+In ER diagrams, a weak entity type is represented by a double-lined rectangle, and the identifying relationship is represented by a double-lined diamond. The primary key of a weak entity is formed by the combination of the primary key of the owner entity and a **partial key** (also called a **discriminator**) of the weak entity type.
+
+![Weak Entity Type](img/weak_entity_type.png)
+
+**Characteristics of a Weak Entity:**
+
+- It is existence-dependent on its owner entity.
+- It has a partial key that can uniquely identify the weak entity in the context of its owner.
+
+**Strong Entity Type vs. Weak Entity Type:**
+
+- **Strong Entity Type**: An entity type that has its own primary key.
+- **Weak Entity Type**: An entity type that does not have its own primary key.
+
+**Example**:
+
+Consider an `EMPLOYEE` entity type and a `DEPENDENT` entity type. A dependent cannot exist without an employee. The `DEPENDENT` entity might have a partial key, such as `DependentName`, which is unique for each dependent of a particular employee.
+
+- **Owner Entity Type**: `EMPLOYEE` (with primary key `EmployeeID`)
+- **Weak Entity Type**: `DEPENDENT` (with partial key `DependentName`)
+- **Primary Key of `DEPENDENT`**: (`EmployeeID`, `DependentName`)
+
+> **Interview Tip:** Weak entities are a common source of confusion. The key takeaway is that a weak entity cannot exist on its own and needs an owner entity for its identification. When asked to model a scenario, look for entities whose existence depends on another entity. A classic example is `ORDER` and `ORDER_ITEM`. An `ORDER_ITEM` cannot exist without an `ORDER`.
+
+### Ternary Relationship Types
+
+A **ternary relationship** is a relationship that involves three entity types. While less common than binary relationships, they are necessary in some modeling scenarios where a relationship can only be described by involving three entities simultaneously.
+
+![Ternary Relationship](img/ternary_relationship.png)
+
+**Example**:
+
+Consider a scenario where a `DOCTOR` prescribes a `MEDICATION` to a `PATIENT`. This is a single event that involves all three entities. It cannot be broken down into binary relationships without losing information. For example, if you have two binary relationships (`DOCTOR` prescribes `MEDICATION`, and `PATIENT` takes `MEDICATION`), you can't tell which doctor prescribed which medication to which patient.
+
+The ternary relationship `PREScribes` connects the three entity types: `DOCTOR`, `PATIENT`, and `MEDICATION`.
+
+> **Interview Tip:** Ternary relationships can be tricky to model and to implement in a relational database. A common approach is to convert the ternary relationship into a new entity (called an associative entity) that has foreign keys to the three participating entities. When faced with a complex modeling problem, always consider if a ternary relationship is needed to accurately represent the situation.
+
+### Examples of the ER Model
+
+Seeing examples of ER models can help solidify the concepts. Here are a couple of real-world scenarios modeled using the ER model.
+
+**1. HR Administration**
+
+This ER model represents a simple HR system. It includes entities for `EMPLOYEE`, `DEPARTMENT`, and `PROJECT`, and relationships like `WORKS_FOR` and `MANAGES`.
+
+![HR Administration ER Model](img/hr_administration_er_model.png)
+
+**2. Purchase Order Administration**
+
+This ER model shows a system for managing purchase orders. It includes entities for `CUSTOMER`, `ORDER`, `PRODUCT`, and `INVOICE`.
+
+![Purchase Order Administration ER Model](img/er_model_purchase_order_administration.png)
+
+> **Interview Tip:** Being able to read and interpret an ER diagram is a critical skill. Practice by looking at different ER diagrams and trying to understand the business rules they represent. A common interview exercise is to be given an ER diagram and asked to explain the system it models.
+
+### Limitations of the ER Model
+
+While the ER model is a powerful tool for conceptual database design, it has some limitations:
+
+- **Limited Constraint Representation**: The ER model can represent a wide range of constraints, but it cannot represent all of them. For example, it's difficult to model functional dependencies that are not related to keys.
+- **No Data Manipulation Language**: The ER model is a static model that describes the structure of the database. It does not have a language for manipulating the data.
+- **Focus on Relational Model**: The ER model is best suited for designing relational databases. It is not as effective for modeling other data models, such as NoSQL databases.
+- **Subjectivity**: The process of creating an ER model can be subjective. Different designers may come up with different ER models for the same system, depending on their interpretation of the requirements.
+
+> **Interview Tip:** While the ER model is a fundamental concept in database design, it's important to be aware of its limitations. In an interview, you can demonstrate a deeper understanding by discussing when you might need to use other modeling techniques or tools to supplement the ER model. For example, you might mention using a data flow diagram (DFD) to model the processes in a system, or using a more advanced modeling language like UML for object-oriented systems.
