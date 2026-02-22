@@ -189,6 +189,11 @@ This architecture supports:
 
 **Q 1.1:** Which statement is not correct?
 
+a. The file-based approach to data management causes the same information to be stored separately for different applications.
+b. In a file-based approach to data management, the data definitions are included in each application separately.
+c. In a file-based approach to data management, different applications could be using older and newer versions of the same data.
+d. In a file-based approach to data management, a change in the structure of a data file is easily handled because each application has its own data files.
+
 **A:** **d**.
 
 Reasoning (each option):
@@ -201,6 +206,11 @@ Reasoning (each option):
 (Ref: Chapter 1, Section 1.3.1 “The File-Based Approach”.)
 
 **Q 1.2:** Which statement is not correct?
+
+a. In a database approach, applications don’t have their own files, but all applications access the same version of the data by interfacing with the DBMS.
+b. In a database approach, the data definitions or metadata are stored in the applications accessing the data.
+c. In a database approach, there is typically less storage needed compared to the file approach.
+d. In a database approach, maintenance of data and metadata is easier.
 
 **A:** **b**.
 
@@ -215,6 +225,11 @@ Reasoning (each option):
 
 **Q 1.3:** Which statement is not correct?
 
+a. In a file-based approach, every application has its own query and access procedures, even if they want to access the same data.
+b. SQL is a database language to manage DBMSs without having to write a substantial amount of programming code.
+c. SQL is a database language that focuses on how to access and retrieve the data.
+d. SQL is a database language that allows different applications to access different subsets of the data necessary for each application.
+
 **A:** **c**.
 
 Reasoning (each option):
@@ -227,6 +242,11 @@ Reasoning (each option):
 (Ref: Chapter 2, procedural vs declarative DML discussion; Chapter 1 database languages overview.)
 
 **Q 1.4:** Which statement is not correct?
+
+a. In a conceptual data model, the data requirements from the business should be captured and modeled.
+b. A conceptual data model is implementation-dependent.
+c. A logical data model translates the conceptual data model to a specific implementation environment.
+d. Examples of implementations of logical data models are hierarchical, CODASYL, relational, or object-oriented models.
 
 **A:** **b**.
 
@@ -241,6 +261,11 @@ Reasoning (each option):
 
 **Q 1.5:** Complete the sentence (A and B).
 
+a. A: internal, B: logical.
+b. A: conceptual, B: internal.
+c. A: logical, B: internal.
+d. A: logical, B: conceptual.
+
 **A:** **a**.
 
 Reasoning (each option):
@@ -253,6 +278,11 @@ Reasoning (each option):
 (Ref: Chapter 1, three-layer architecture and internal vs logical descriptions.)
 
 **Q 1.6:** What concept specifies the data items, relationships, constraints, storage details, etc.?
+
+a. Database model.
+b. Catalog.
+c. Database state.
+d. None of the above.
 
 **A:** **a. Database model.**
 
@@ -267,6 +297,11 @@ Reasoning (each option):
 
 **Q 1.7:** Which statement regarding the database state is correct?
 
+a. The database state represents the data in the database when the database is first created.
+b. The database state changes when data are updated or removed.
+c. The database state specifies the various data items, their characteristics, and relationships, and is specified during the database design.
+d. The database state is stored in the catalog.
+
 **A:** **b**.
 
 Reasoning (each option):
@@ -279,6 +314,11 @@ Reasoning (each option):
 (Ref: Chapter 1, Section 1.4.1 “Database Model versus Instances”.)
 
 **Q 1.8:** Between the external layer and the conceptual/logical layer, there is …
+
+a. physical data independence.
+b. logical data independence.
+c. no independence, they are basically the same thing.
+d. the internal layer.
 
 **A:** **b. logical data independence.**
 
@@ -293,6 +333,15 @@ Reasoning (each option):
 
 **Q 1.9:** Which statement is correct?
 
+Statement A: The middle layer of the three-layer architecture consists of both the conceptual data model and the logical data model. The logical data model is physically implemented in the internal layer.
+
+Statement B: The top level of the three-layer architecture is the external layer. Views for one or more applications always offer a window on the complete logical model.
+
+a. Only sentence A is right.
+b. Only sentence B is right.
+c. Sentences A and B are right.
+d. Neither A nor B is right.
+
 **A:** **a**.
 
 Reasoning (each option):
@@ -305,6 +354,15 @@ Reasoning (each option):
 (Ref: Chapter 1, three-layer architecture and view concept.)
 
 **Q 1.10:** Which statement is correct?
+
+Statement A: DDL is the language used to define the logical data model, but no other data models.
+
+Statement B: SQL is a DML language to retrieve, insert, delete, and modify data. It is stored in the catalog.
+
+a. Only A.
+b. Only B.
+c. A and B.
+d. Neither A nor B.
 
 **A:** **d. Neither A nor B.**
 
@@ -319,6 +377,15 @@ Reasoning (each option):
 
 **Q 1.11:** Which statement is correct?
 
+Statement A: Physical data independence implies that neither the applications nor the views or logical data model must be changed when changes are made to the data storage specifications in the internal data model.
+
+Statement B: Logical data independence implies that software applications are minimally affected by changes in the conceptual or logical data model.
+
+a. Only A.
+b. Only B.
+c. A and B.
+d. Neither A nor B.
+
 **A:** **c. A and B.**
 
 Reasoning (each option):
@@ -331,6 +398,9 @@ Reasoning (each option):
 (Ref: Chapter 1, Section 1.5.1 “Data Independence”.)
 
 **Q 1.12:** “An employee … can never earn more than the manager …” is an example of a:
+
+a. syntactical integrity rule.
+b. semantical integrity rule.
 
 **A:** **b. semantical integrity rule.**
 
@@ -459,6 +529,11 @@ Reasoning (each option):
 
 **Q 2.1:** Which of these is part of the query processor?
 
+a. DDL compiler.
+b. DML compiler.
+c. Transaction manager.
+d. Security manager.
+
 **A:** **b. DML compiler.**
 
 (Reasoning (each option):
@@ -471,6 +546,11 @@ Reasoning (each option):
 (Ref: Chapter 2, Section 2.1.3 “Query Processor”.)
 
 **Q 2.2:** Which of these is not part of the storage manager?
+
+a. Connection manager.
+b. Transaction manager.
+c. Buffer manager.
+d. Recovery manager.
 
 **A:** **a. Connection manager.**
 
@@ -485,6 +565,17 @@ Reasoning (each option):
 
 **Q 2.3:** Which statement(s) is/are correct?
 
+Statement A: The DDL compiler compiles data definitions specified in
+DDL. It is possible that there is only one DDL with three instruction sets.
+
+Statement B: The first step of the DDL compiler is to translate the
+DDL definitions.
+
+a. Only A.
+b. Only B.
+c. A and B.
+d. Neither A nor B.
+
 **A:** **a. Only A.** The DDL compiler compiles DDL definitions and implementations may use a single DDL with instruction sets; its first steps include parsing/syntactic checks before translation/registration.
 
 (Reasoning:
@@ -497,6 +588,18 @@ Reasoning (each option):
 
 **Q 2.4:** Which statement(s) is/are correct?
 
+Statement A: There is no query processor available in procedural
+DML.
+
+Statement B: With procedural DML, the DBMS determines the access
+path and navigational strategy to locate and modify the data specified in
+the query.
+
+a. Only A.
+b. Only B.
+c. A and B.
+d. Neither A nor B.
+
 **A:** **a. Only A.** Procedural DML typically lacks a DBMS query processor/optimizer; the access path is driven by application logic, not chosen by the DBMS.
 
 (Reasoning:
@@ -508,6 +611,24 @@ Reasoning (each option):
 (Ref: Chapter 2, Section 2.1.3.1 discussion of procedural DML.)
 
 **Q 2.5:** Evaluate the statements (record-at-a-time vs set-at-a-time).
+
+1. Record-at-a-time DML means that the query gets recorded from the
+user at the time the user inputs the query and then gets processed.
+
+2. Record-at-a-time DML means that navigating the database starts
+with positioning on one specific record and going from there onwards
+to other records.
+
+3. Set-at-a-time DML means that the query gets set beforehand and
+then gets processed by the DBMS.
+
+4. Set-at-a-time DML means that many records can be retrieved in one
+DML statement.
+
+a. 1 and 3 are right.
+b. 2 and 3 are right.
+c. 1 and 4 are right.
+d. 2 and 4 are right.
 
 **A:** **d. 2 and 4 are right.** Record-at-a-time is navigational (position on a record and navigate); set-at-a-time can retrieve many records in one statement. Statements 1 and 3 misuse “recorded/set beforehand”.
 
@@ -523,6 +644,19 @@ Reasoning (each option):
 
 **Q 2.6:** Which statement(s) is/are correct?
 
+Statement A: The impedance mismatch problem can be solved by
+using middleware to map data structures between the DBMS and the
+DDL statements.
+
+Statement B: An object-oriented host language such as Java combined
+with a document-oriented DBMS such as MongoDB does not require
+mapping objects to documents and vice versa.
+
+a. Only A.
+b. Only B.
+c. A and B.
+d. Neither A nor B.
+
 **A:** **b. Only B.** The impedance mismatch is about mapping between application data structures (often OO) and DBMS data structures (often relational); document-oriented DBMSs reduce the need for heavy object-document mapping compared with object-relational mapping. Statement A is incorrect as written (DDL is not what OO middleware maps to).
 
 (Reasoning:
@@ -534,6 +668,17 @@ Reasoning (each option):
 (Ref: Chapter 2, categorization and discussion of impedance mismatch / mapping; and document DBMS characterization.)
 
 **Q 2.7:** Which statement(s) is/are correct?
+
+Statement A: The query parser optimizes and simplifies a query and
+then passes it on to the query executor.
+
+Statement B: In the DBMS architecture, the storage manager takes
+care of concurrency control.
+
+a. Only A.
+b. Only B.
+c. A and B
+d. Neither A nor B.
 
 **A:** **b. Only B.** Query optimization is the optimizer’s task, not the parser’s; concurrency control is handled within storage manager components (notably lock/transaction managers).
 
@@ -547,6 +692,17 @@ Reasoning (each option):
 
 **Q 2.8:** Fill in the gaps (A and B).
 
+When, during crash recovery, aborted transactions need to be undone,
+that is a task of the …A…
+
+The part of the storage manager that guarantees the ACID properties is
+the …B…
+
+a. A: lock manager, B: recovery manager.
+b. A: lock manager, B: lock manager.
+c. A: recovery manager, B: buffer manager.
+d. A: recovery manager, B: transaction manager.
+
 **A:** **d. A: recovery manager, B: transaction manager.** Undoing aborted transactions during recovery is part of recovery; guaranteeing ACID (especially atomicity/isolation) is centered in transaction management.
 
 (Reasoning:
@@ -558,6 +714,11 @@ Reasoning (each option):
 (Ref: Chapter 2, Sections 2.1.4.1 “Transaction Manager” and 2.1.4.4 “Recovery Manager”.)
 
 **Q 2.9:** CODASYL is an example of …
+
+a. a hierarchical DBMS.
+b. a network DBMS.
+c. a relational DBMS.
+d. an object-oriented DBMS.
 
 **A:** **b. a network DBMS.**
 
@@ -572,6 +733,11 @@ Reasoning (each option):
 
 **Q 2.10:** Which DBMS type is not a classification based on a data model?
 
+a. Hierarchical DBMS.
+b. Network DBMS.
+c. Cloud DBMS.
+d. Object-relational DBMS.
+
 **A:** **c. Cloud DBMS.** It’s a deployment/architecture category, not a data model.
 
 (Reasoning:
@@ -583,6 +749,17 @@ Reasoning (each option):
 (Ref: Chapter 2, Sections 2.2.1 vs 2.2.3 “Categorization Based on Architecture”.)
 
 **Q 2.11:** Which statement(s) is/are correct?
+
+Statement A: In a hierarchical DBMS, DML is declarative and set
+oriented with a query processor.
+
+Statement B: In a relational DBMS, there is data independence
+between the conceptual and internal data model.
+
+a. Only A.
+b. Only B.
+c. A and B.
+d. Neither A nor B
 
 **A:** **b. Only B.** Hierarchical DBMSs are typically navigational/procedural; relational DBMSs support data independence between conceptual/logical and internal layers (physical data independence).
 
@@ -596,6 +773,11 @@ Reasoning (each option):
 
 **Q 2.12:** DBMS architecture that can access multiple data sources and hides low-level details:
 
+a. n-tier DBMS.
+b. cloud DBMS.
+c. client–server DBMS.
+d. federated DBMS.
+
 **A:** **d. federated DBMS.**
 
 (Reasoning:
@@ -608,6 +790,19 @@ Reasoning (each option):
 
 **Q 2.13:** Which statement(s) is/are correct (OLTP vs OLAP)?
 
+Statement A: An OLTP system is able to cope with real-time,
+simultaneous transactions that the database server is able to process in a
+large volume.
+
+Statement B: An OLAP system uses large amounts of operational data
+to run complex queries on and provide insights for tactical and strategic
+decision-making.
+
+a. Only A.
+b. Only B
+c. A and B.
+d. Neither A nor B.
+
 **A:** **c. A and B.**
 
 (Reasoning:
@@ -619,6 +814,19 @@ Reasoning (each option):
 (Ref: Chapter 2, Section 2.2.4 “Categorization Based on Usage”.)
 
 **Q 2.14:** Which statement(s) is/are correct (native XML vs XML-enabled)?
+
+Statement A: Native XML DBMSs map the hierarchical structure of
+an XML document to a physical storage structure, because they are able
+to use the intrinsic structure of an XML document.
+
+Statement B: XML-enabled DBMSs are able to store XML data in an
+integrated and transparent way, because they are able to use the intrinsic
+structure of an XML document.
+
+a. Only A.
+b. Only B.
+c. A and B.
+d. Neither A nor B.
 
 **A:** **a. Only A.** Native XML DBMSs store XML using its hierarchical structure; XML-enabled DBMSs typically store XML in relational structures and do not inherently “use the intrinsic structure” in physical storage the same way.
 
@@ -871,6 +1079,11 @@ Reasoning (each option):
 
 **Q 3.1:** Given the ER model above, which of the following statements is correct?
 
+a. A movie can have as many lead actors as there are actors in the movie.
+b. PRODUCER is an existence-dependent entity type.
+c. A director of a movie can also act in the same movie.
+d. A movie can have multiple actors, producers, and directors.
+
 **A:** **c. A director of a movie can also act in the same movie.**
 
 Reasoning (each option):
@@ -883,6 +1096,11 @@ Reasoning (each option):
 (Ref: Chapter 3, ER cardinalities/roles; weak vs existence-dependent; relationship semantics.)
 
 **Q 3.2:** In the movie ER model above (relationship PRODUCES), adding attribute type WORKING HOURS for producer-movie: which scenario is possible?
+
+a. We can migrate the attribute type “WORKING HOURS” to the “MOVIE” entity type.
+b. We can migrate the attribute type “WORKING HOURS” to the “PRODUCER” entity type.
+c. We can migrate the attribute type “WORKING HOURS” to either one of the linked entity types.
+d. We can add the attribute type “WORKING HOURS” to the relationship type PRODUCES.
 
 **A:** **d. We can add the attribute type “WORKING HOURS” to the relationship type PRODUCES.**
 
@@ -897,6 +1115,11 @@ Reasoning (each option):
 
 **Q 3.3:** Which statement is correct (ternary vs binary relationship types)?
 
+a. In the case a ternary relationship type is represented as three binary relationship types, then semantics will get lost.
+b. A ternary relationship type can always be represented as three binary relationship types without loss of semantics.
+c. Three binary relationship types between three entity types can always be replaced by one ternary relationship type between the three participating entity types.
+d. A ternary relationship type cannot have attribute types.
+
 **A:** **a. In case a ternary relationship type is represented as three binary relationship types, semantics will get lost.**
 
 Reasoning (each option):
@@ -909,6 +1132,11 @@ Reasoning (each option):
 (Ref: Chapter 3, Section 3.2.6 “Ternary Relationship Types”.)
 
 **Q 3.4:** Which statements are correct (weak entity types / existence dependency)?
+
+a. A weak entity type can only have one attribute type.
+b. A weak entity type is always existence-dependent.
+c. An existence-dependent entity type is always a weak entity type.
+d. An existence-dependent entity type always participates in a 1:1 relationship type.
 
 **A:** **b. A weak entity type is always existence-dependent.**
 
@@ -927,6 +1155,11 @@ Reasoning (each statement):
 
 **Q 3.5:** Given the ER model, which statement is not correct?
 
+a. The ER model does not enforce that a supplier can only have purchase orders outstanding for products he/she can actually supply.
+b. The ER model has both weak and existence-dependent entity types.
+c. According to the ER model, a supplier cannot have more than one address.
+d. According to the ER model, there can be suppliers that supply no products and have no purchase orders outstanding.
+
 **A:** **b. The ER model has both weak and existence-dependent entity types.**
 
 Reasoning (each option):
@@ -943,6 +1176,11 @@ Reasoning (each option):
 ![EER specialization used by Q3.6](quiz/img/3.6.png)
 
 **Q 3.6:** Given the EER specialization, which statement is correct?
+
+a. A supermarket product can be a food and non-food product at the same time.
+b. There are certain supermarket products that are not fruits and vegetables, not meat and not non-food.
+c. All food products are either fruits and vegetables or meat.
+d. A meat product does not have any attribute types.
 
 **A:** **b. There are certain supermarket products that are not fruits and vegetables, not meat and not non-food.**
 
@@ -961,6 +1199,11 @@ Reasoning (each option):
 
 **Q 3.7:** Given the EER categorization, which statement is correct?
 
+a. All men and women are patients.
+b. A patient only inherits the “Name” and “Date of birth” attribute types from the superclass that the current entity belongs to.
+c. The categorization can also be represented as a specialization.
+d. The categorization can also be represented as an aggregation.
+
 **A:** **b. A patient only inherits the “Name” and “Date of birth” attribute types from the superclass that the current entity belongs to.**
 
 Reasoning (each option):
@@ -973,6 +1216,11 @@ Reasoning (each option):
 (Ref: Chapter 3, Section 3.3.2 “Categorization”.)
 
 **Q 3.8:** Which is an example of a disjoint and partial specialization?
+
+a. HUMAN → VEGETARIAN + NON-VEGETARIAN
+b. HUMAN → BLONDE + BRUNETTE
+c. HUMAN → LOVES FISH + LOVES MEAT
+d. HUMAN → UNIVERSITY DEGREE + COLLEGE DEGREE
 
 **A:** **b. HUMAN → BLONDE + BRUNETTE**
 
@@ -987,6 +1235,11 @@ Reasoning (each option):
 
 **Q 3.9:** Which statement is correct (aggregation)?
 
+a. An aggregation cannot have attribute types.
+b. An aggregation cannot participate in a relationship type.
+c. An aggregation should both have attribute types and participate in one or more relationship types.
+d. An aggregation can have attribute types and participate in relationship types.
+
 **A:** **d. An aggregation can have attribute types and participate in relationship types.**
 
 Reasoning (each option):
@@ -999,6 +1252,11 @@ Reasoning (each option):
 (Ref: Chapter 3, Section 3.3.3 “Aggregation”.)
 
 **Q 3.10:** Which statement is correct (OO concepts)?
+
+a. A class is an instance of an object.
+b. A class only has variables.
+c. Inheritance is not supported in object orientation.
+d. Information hiding (also referred to as encapsulation) states that the variables of an object can only be accessed through either getter or setter methods.
 
 **A:** **d. Information hiding (encapsulation) states variables can only be accessed through getter/setter methods.**
 
@@ -1013,6 +1271,11 @@ Reasoning (each option):
 
 **Q 3.11:** Which variable types are not directly supported in UML?
 
+a. Composite variables.
+b. Multi-valued variables.
+c. Variables with unique values (similar to key attribute types in the ER model).
+d. Derived variables.
+
 **A:** **c. Variables with unique values (similar to key attribute types in ER).**
 
 Reasoning (each option):
@@ -1025,6 +1288,11 @@ Reasoning (each option):
 (Ref: Chapter 3, UML vs ER comparison and constraint discussion; ER key attribute type vs UML constraints.)
 
 **Q 3.12:** Which of the following statements is not correct (UML access modifiers)?
+
+a. In UML, access modifiers can be used to specify who can have access to a variable or method.
+b. A private access modifier (denoted by the symbol “–”) is used in the case that the variable or method can only be accessed by the class itself.
+c. A public access modifier (denoted by the symbol “+”) is used in the case that the variable or method can be accessed by any other class.
+d. A protected access modifier (denoted by the symbol “#”) is used in the case that the variable or method can be accessed by both the class and its superclasses.
 
 **A:** **d.** (Protected access is for the class and its subclasses, not its superclasses.)
 
@@ -1039,6 +1307,11 @@ Reasoning (each option):
 
 **Q 3.13:** Which statement is correct (associations)?
 
+a. An association is an instance of a link.
+b. Only binary associations are supported in the UML class diagram.
+c. An association is always bidirectional.
+d. Qualified associations can be used to represent weak entity types.
+
 **A:** **d. Qualified associations can be used to represent weak entity types.**
 
 Reasoning (each option):
@@ -1052,6 +1325,11 @@ Reasoning (each option):
 
 **Q 3.14:** A composite aggregation…
 
+a. has a maximum multiplicity of 1 and a minimum multiplicity of 0 or 1 at the composite side.
+b. has a maximum multiplicity of n and a minimum multiplicity of 0 at the composite side.
+c. has a maximum multiplicity of n and a minimum multiplicity of 0 or 1 at the composite side.
+d. has a maximum multiplicity of 1 and a minimum multiplicity of 1 at the composite side.
+
 **A:** **a. has a maximum multiplicity of 1 and a minimum multiplicity of 0 or 1 at the composite side.**
 
 Reasoning (each option):
@@ -1063,6 +1341,11 @@ Reasoning (each option):
 (Ref: Chapter 3, Section 3.4.7 “Aggregation”.)
 
 **Q 3.15:** Which statement is not correct (UML advanced concepts)?
+
+a. The changeability property specifies the type of operations that are allowed on either variable values or links.
+b. OCL constraints are defined in a procedural way.
+c. OCL constraints can be used for various purposes, such as to specify invariants for classes, to specify pre- and post-conditions for methods, to navigate between classes or to define constraints on operations.
+d. In UML, dependency defines a “using” relationship that states that a change in the specification of a UML modeling concept may affect another modeling concept that uses it.
 
 **A:** **b. OCL constraints are defined in a procedural way.**
 
@@ -1344,6 +1627,12 @@ Roles that are usually better kept distinct:
 
 **Q 4.1:** Which statement is correct (catalog/metadata)?
 
+Options:
+a. The catalog forms the heart of a database. It can be an integral part of the DBMS or a standalone component.
+b. The catalog makes sure the database continues to be correct by, among other measures, specifying all integrity rules.
+c. The catalog describes all metadata components that are defined in the metamodel.
+d. All of the above are correct.
+
 **A:** **d. All of the above are correct.**
 
 Reasoning (each option):
@@ -1356,6 +1645,12 @@ Reasoning (each option):
 (Ref: Chapter 4, Section 4.1.1 “Catalogs and the Role of Metadata” and Section 4.1.2 “Metadata Modeling”.)
 
 **Q 4.2:** Data in a different language: which type of DQ error?
+
+Options:
+a. Intrinsic.
+b. Contextual.
+c. Representational.
+d. Accessibility.
 
 **A:** **c. Representational.**
 
@@ -1370,6 +1665,10 @@ Reasoning (each option):
 
 **Q 4.3:** True/false: “The accuracy of a database depends on its representational and contextual characteristics.”
 
+Options:
+a. True.
+b. False.
+
 **A:** **b. False.**
 
 Reasoning (each option):
@@ -1380,6 +1679,12 @@ Reasoning (each option):
 (Ref: Chapter 4, Table 4.1: Intrinsic vs Contextual vs Representation vs Access categories.)
 
 **Q 4.4:** Why can data incompleteness prove useful information?
+
+Options:
+a. We can track down faults in the database model, such as updating errors that cause inconsistencies.
+b. We can track down the source of the incompleteness and thereby eliminate the cause thereof.
+c. We can track down certain patterns in the incomplete fields, which can lead to more information about a certain user.
+d. All of the above.
 
 **A:** **d. All of the above.**
 
@@ -1393,6 +1698,12 @@ Reasoning (each option):
 (Ref: Chapter 4, data quality discussion and governance/root-cause analysis emphasis.)
 
 **Q 4.5:** Which statement is not correct?
+
+Options:
+a. Subjectivity can cause data quality issues.
+b. Consistency issues can arise due to sharing data across multiple departments.
+c. Data quality can always be measured objectively.
+d. All aspects of data quality need to be checked regularly, as every change in the database or even the company can lead to unforeseen issues.
 
 **A:** **c. Data quality can always be measured objectively.**
 
@@ -1572,6 +1883,14 @@ Which can be combined:
 
 **Q 5.1:** Bank info in hierarchical DB: how many record types needed?
 
+a. One.
+
+b. Three.
+
+c. Four.
+
+d. Five.
+
 **A:** **c. Four.**
 
 Reasoning (each option):
@@ -1587,6 +1906,14 @@ Reasoning (each option):
 
 **Q 5.2:** Dangers of repeating child nodes to integrate N:M in hierarchical model?
 
+a. Slower retrieval of data.
+
+b. Creating data inconsistency.
+
+c. Creating unnecessary records.
+
+d. All of the above.
+
 **A:** **d. All of the above.**
 
 Reasoning (each option):
@@ -1599,6 +1926,14 @@ Reasoning (each option):
 (Ref: Chapter 5, hierarchical N:M workaround discussion and redundancy implications.)
 
 **Q 5.3:** CODASYL: enforce exactly one main professor per course.
+
+a. They introduce an extra set type called “is-main-professor-of” between record types “professor” and “course”.
+
+b. They introduce an “is-main-professor” record type between record types “professor” and “course” to model the correct relationship.
+
+c. They introduce “main professor” as a data item in the record type “professor”.
+
+d. It is impossible to model this constraint in CODASYL.
 
 **A:** **b. Introduce an “is-main-professor” dummy record type between professor and course.**
 
@@ -1613,6 +1948,14 @@ Reasoning (each option):
 
 **Q 5.4:** CODASYL multi-valued composite attribute type is represented as a …
 
+a. record type.
+
+b. data item.
+
+c. vector.
+
+d. repeated group.
+
 **A:** **d. repeated group.**
 
 Reasoning (each option):
@@ -1625,6 +1968,14 @@ Reasoning (each option):
 (Ref: Chapter 5, Section 5.2: vectors vs repeated groups.)
 
 **Q 5.5:** CODASYL family tree with each child having at least two parents.
+
+a. Use a set type “is parent of” between record types “parent” and “child”.
+
+b. Use a dummy record type “is parent of” between record types “parent” and “child”.
+
+c. List the parents as a vector in the data item set of every child.
+
+d. We cannot model this constraint with the CODASYL framework.
 
 **A:** **d. We cannot model this constraint with the CODASYL framework.**
 
@@ -1843,6 +2194,22 @@ Loss of semantics:
 
 **Q 6.1:** Given the normalized relational model (EMPLOYEE/DEPARTMENT/PROJECT/WORKS_ON), which statement is correct?
 
+a. According to the model, a supervisor cannot supervise more than
+
+one employee.
+
+b. According to the model, an employee can manage multiple
+
+departments.
+
+c. According to the model, an employee can work in multiple
+
+departments.
+
+d. According to the model, an employee should always work on
+
+projects assigned to his/her department.
+
 **A:** **b. According to the model, an employee can manage multiple departments.**
 
 Reasoning (each option):
@@ -1855,6 +2222,16 @@ Reasoning (each option):
 (Ref: Chapter 6, keys/foreign keys and what they do/don’t enforce.)
 
 **Q 6.2:** Which statement is correct (foreign keys)?
+
+a. A foreign key of a relation A cannot refer to the primary key of the
+
+same relation A.
+
+b. A relation cannot have more than one foreign key.
+
+c. Every relation must have a foreign key.
+
+d. A foreign key can be NULL.
 
 **A:** **d. A foreign key can be NULL.**
 
@@ -1869,6 +2246,14 @@ Reasoning (each option):
 
 **Q 6.3:** One-table Olympics model (country + athletes in 1:N) leads to:
 
+a. Unnecessary replication of data about athletes.
+
+b. Unnecessary replication of data about countries.
+
+c. Unnecessary replication of data about athletes and countries.
+
+d. No unnecessary replication of data.
+
 **A:** **b. Unnecessary replication of data about countries.**
 
 Reasoning (each option):
@@ -1881,6 +2266,14 @@ Reasoning (each option):
 (Ref: Chapter 6, anomalies/redundancy intuition and normalization motivation.)
 
 **Q 6.4:** Consultancy firm model: new consultant + new firm + new training project + two existing projects. How many tuples added?
+
+a. 1.
+
+b. 3.
+
+c. 5.
+
+d. 6.
 
 **A:** **d. 6.**
 
@@ -1896,6 +2289,18 @@ Reasoning (each option):
 
 **Q 6.5:** Which statement is not correct (EMPLOYEE/DEPARTMENT/PROJECT/WORKS_ON)?
 
+a. A department always has exactly one manager.
+
+b. Every employee must always be supervised by exactly one other
+
+employee.
+
+c. Every project is always assigned to exactly one department.
+
+d. According to the model, an employee can work in another
+
+department than he/she manages.
+
 **A:** **b. Every employee must always be supervised by exactly one other employee.**
 
 Reasoning (each option):
@@ -1908,6 +2313,18 @@ Reasoning (each option):
 (Ref: Chapter 6, optional vs mandatory foreign keys.)
 
 **Q 6.6:** Student/course/professor model: which statement is correct?
+
+a. The model does not allow a course to be taught by multiple
+
+professors.
+
+b. The model can be further normalized.
+
+c. The model does not allow a professor to teach multiple courses.
+
+d. The model does not allow a course to be followed by multiple
+
+students.
 
 **A:** **b. The model can be further normalized.**
 
@@ -1922,6 +2339,22 @@ Reasoning (each option):
 
 **Q 6.7:** A relation is in 3NF if it satisfies 2NF and …
 
+a. no non-prime attribute type of R is transitively dependent on the
+
+primary key.
+
+b. no prime attribute type of R is transitively dependent on the primary
+
+key.
+
+c. no primary key of R is transitively dependent on a prime attribute
+
+type.
+
+d. no non-primary key of R is transitively dependent on a prime
+
+attribute type.
+
 **A:** **a. no non-prime attribute type of R is transitively dependent on the primary key.**
 
 Reasoning (each option):
@@ -1932,6 +2365,22 @@ Reasoning (each option):
 (Ref: Chapter 6, Section 6.2.4.3 3NF definition context.)
 
 **Q 6.8:** Which statement is correct (BCNF vs other NFs)?
+
+a. The Boyce–Codd normal form is more strict than the fourth normal
+
+form.
+
+b. The Boyce–Codd normal form is more strict than the third normal
+
+form.
+
+c. The second normal form is more strict than the Boyce–Codd normal
+
+form.
+
+d. The first normal form is more strict than the Boyce–Codd normal
+
+form.
 
 **A:** **b. The Boyce–Codd normal form is more strict than the third normal form.**
 
@@ -1948,6 +2397,32 @@ Reasoning (each option):
 ![EER specialization and relational mapping used by Q6.9](img/ch6/page_366.png)
 
 **Q 6.9:** Which option is correct about enforcing completeness/disjointness for the specialization mapping shown?
+
+Consider the following four statements:
+
+1. The relational model does not allow one to enforce the
+
+completeness constraint; the disjointness constraint can be enforced.
+
+2. The relational model does not allow one to enforce both the
+
+completeness constraint and the disjointness constraint.
+
+3. By dropping the relation “Discipline” in the relational model, the
+
+completeness constraint can be enforced.
+
+4. The relational model allows the specialization to be partial.
+
+Which of the following options is correct?
+
+a. Statements 1 and 2 are both correct.
+
+b. Statements 1 and 4 are both incorrect.
+
+c. Only statement 1 is incorrect, the other statements are correct.
+
+d. Only statement 4 is incorrect, the other statements are correct.
 
 **A:** **c. Only statement 1 is incorrect, the other statements are correct.**
 
@@ -1974,6 +2449,40 @@ Reasoning (each option):
 
 **Q 6.10:** Consider the EER model. Which statement is correct?
 
+a. When mapping the EER relationship type IS_ENROLLED between
+
+COURSE and STUDENT to the relational model, a new relation needs
+
+to be introduced. The relation is identified by GRADE as its primary
+
+key.
+
+b. When mapping the EER relationship type INVOLVE between
+
+COURSE and ASSIGNMENT to the relational model, a new relation
+
+needs to be introduced. The 1..1 cardinalities of this relationship type
+
+cannot be enforced in the relational model.
+
+c. When mapping the EER relationship type PARTICIPATE between
+
+GROUP ASSIGNMENT and STUDENT to the relational model, a
+
+new relation needs to be introduced. The four cardinalities of this EER
+
+relationship type can be perfectly mapped to the relational model.
+
+d. The partial inheritance relationship between STUDENT and
+
+REPRESENTATIVE can be perfectly mapped to the relational model
+
+by the following two relations: STUDENT(StudentID, FirstName,
+
+LastName) and REPRESENTATIVE (S-StudentID, Email) whereby
+
+S-StudentID refers to StudentID in STUDENT.
+
 **A:** **d. The partial inheritance relationship between STUDENT and REPRESENTATIVE can be perfectly mapped by STUDENT(...) and REPRESENTATIVE(S-StudentID, Email) where S-StudentID refers to StudentID in STUDENT.**
 
 Reasoning (each option):
@@ -1990,6 +2499,36 @@ Reasoning (each option):
 ![ER model used by Q6.11](img/ch6/page_371.png)
 
 **Q 6.11:** Consider the ER model for course administration. Which statement is not correct?
+
+a. When mapping the ER relationship type teaches between Session
+
+and Teacher to the relational model, a new relation needs to be
+
+introduced. The four cardinalities of this ER relationship type can be
+
+perfectly mapped to the relational model.
+
+b. When mapping the ER relationship type organizes between Course
+
+and Session to the relational model, the primary key “cnb” of the
+
+Course relation will be included as a NOT NULL foreign key in the
+
+Session relation. The four cardinalities of this ER relationship type can
+
+be perfectly mapped to the relational model.
+
+c. When mapping the ER relationship type enrollment between
+
+Session and Student to the relational model, a new relation needs to be
+
+introduced. The four cardinalities of this ER relationship type can be
+
+perfectly mapped to the relational model.
+
+d. Both the ER and the relational model cannot enforce that a teacher
+
+can only teach sessions of courses for which he/she is qualified.
 
 **A:** **a.** (The claim that the four cardinalities of the teaches relationship can be perfectly mapped is not correct.)
 
